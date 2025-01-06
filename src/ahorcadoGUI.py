@@ -29,6 +29,9 @@ class AhorcadoApp:
         self.boton_comprobar = tk.Button(root, text="Comprobar letra", command=self.comprobar_letra_gui)
         self.boton_comprobar.pack(pady=10)
 
+        self.label_letras_probadas = tk.Label(root, text='Letras probadas:', font=("Helvetica", 14))
+        self.label_letras_probadas.pack(pady=10)
+
         self.label_mensaje = tk.Label(root, text="", font=("Helvetica", 14), fg="red")
         self.label_mensaje.pack(pady=10)
 
@@ -87,6 +90,7 @@ class AhorcadoApp:
         # Actualizar interfaz
         self.label_palabra.config(text=enmascarar_palabra(self.palabra_secreta, self.letras_probadas))
         self.label_intentos.config(text=f"Intentos restantes: {self.intentos_restantes}")
+        self.label_letras_probadas.config(text=f"Letras probadas: {' '.join(self.letras_probadas)}")
         self.entry_letra.delete(0, tk.END)
 
         # Comprobar si el jugador ha ganado
@@ -112,6 +116,7 @@ class AhorcadoApp:
         self.intentos_restantes = self.max_intentos
         self.label_palabra.config(text=enmascarar_palabra(self.palabra_secreta, self.letras_probadas))
         self.label_intentos.config(text=f"Intentos restantes: {self.intentos_restantes}")
+        self.label_letras_probadas.config(text='Letras probadas:')
         self.label_mensaje.config(text="")
         self.canvas.delete("all")  # Limpiar el canvas
         self.dibujar_base()  # Dibujar nuevamente la base de la horca
