@@ -94,7 +94,7 @@ class AhorcadoApp:
         self.entry_letra.delete(0, tk.END)
 
         # Comprobar si el jugador ha ganado
-        if comprobar_palabra_completa(self.palabra_secreta, self.letras_probadas):
+        if comprobar_palabra_completa(self.palabra_secreta, self.letras_probadas) == True:
             self.fin_juego(ganador=True)
 
         # Comprobar si el jugador ha perdido
@@ -102,7 +102,7 @@ class AhorcadoApp:
             self.fin_juego(ganador=False)
 
     def fin_juego(self, ganador):
-        if ganador:
+        if ganador==True:
             messagebox.showinfo("Juego Terminado", f"¡Felicidades! Has adivinado la palabra: {self.palabra_secreta}")
         else:
             messagebox.showinfo("Juego Terminado", f"Has perdido. La palabra era: {self.palabra_secreta}")

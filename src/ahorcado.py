@@ -47,9 +47,9 @@ def comprobar_palabra_completa(palabra:str,letras:set)->bool:
     conj=set()
     for p in palabra:
         conj.add(p)
-    if conj==letras:
-        return True,letras
-    elif conj!=letras:
+    if len(conj&letras)==len(conj):
+        return True
+    else:
         return False
     
 def ejecutar_turno(palabra:str,letras:set)->Tuple[bool,set]:
